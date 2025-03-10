@@ -11,8 +11,7 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-SPAM_KEYWORDS = ["free", "win", "prize", "offer", "discount", "cash", 
-                "urgent", "congratulations", "click", "limited"] # A set of Spam Keywords
+SPAM_KEYWORDS = ["free", "win", "prize", "offer", "discount", "cash", "urgent", "congratulations", "click", "limited"] # A set of Spam Keywords
 
 def analyze_email_body(body):
     tokens = word_tokenize(body)
