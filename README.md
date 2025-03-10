@@ -14,7 +14,6 @@ This project is an **Email Risk Analysis System** that analyzes emails for risk,
 4. [API Endpoints](#api-endpoints)
 5. [Example Request and Response](#example-request-and-response)
 6. [Folder Structure](#folder-structure)
-7. [Contributors](#contributors)
 
 ---
 
