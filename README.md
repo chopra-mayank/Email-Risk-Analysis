@@ -44,112 +44,111 @@ This project is an **Email Risk Analysis System** that analyzes emails for risk,
 1. **Start MongoDB**:
    ```bash
    mongod
-
-2.Run the Node.js Backend:
+   ```
+2. **Run the Node.js Backend**:
    ```bash
    cd node_backend
    npm install
    node index.js
-
-3.Run the Flask Backend:
-
+   ```
+3. **Run the Flask Backend**:
    ```bash
    cd flask_backend
    python -m venv venv
    venv\Scripts\activate
    pip install -r requirements.txt
    python app.py
+   ```
 
-4.Test the System Using Postman:
-
-Send a POST request to http://localhost:3000/analyze-email with the following JSON body:
-
+4. **Test the System Using Postman**:
+   
+   Send a POST request to `http://localhost:3000/analyze-email` with the following JSON body:
    ```json
    {
      "email_id": "12345",
      "senderEmail": "test@example.com",
      "body": "This is a test email."
    }
+   ```
 
-API Endpoints
+---
 
-Node.js Backend
+## API Endpoints
 
-POST /analyze-email: Submit an email for analysis.
+### Node.js Backend
+- **POST /analyze-email**: Submit an email for analysis.
 
-Request Body:
+  **Request Body:**
+  ```json
+  {
+    "email_id": "12345",
+    "senderEmail": "test@example.com",
+    "body": "This is a test email."
+  }
+  ```
+  **Response:**
+  ```json
+  {
+    "message": "Email analyzed and updated successfully"
+  }
+  ```
 
-```json
-{
-  "email_id": "12345",
-  "senderEmail": "test@example.com",
-  "body": "This is a test email."
-}
+### Flask Backend
+- **POST /process-email**: Analyze an email and return risk scores.
 
-Response:
+  **Request Body:**
+  ```json
+  {
+    "email_id": "12345",
+    "senderEmail": "test@example.com",
+    "body": "This is a test email."
+  }
+  ```
+  **Response:**
+  ```json
+  {
+    "risk_score": 0.75,
+    "spam_score": 0.8,
+    "grammar_score": 0.9
+  }
+  ```
 
-```json
-{
-  "message": "Email analyzed and updated successfully"
-}
+---
 
-Flask Backend
+## Example Request and Response
 
-POST /process-email: Analyze an email and return risk scores.
+**Request (via Postman)**
+- **URL:** `http://localhost:3000/analyze-email`
+- **Method:** POST
+- **Body (JSON):**
+  ```json
+  {
+    "email_id": "12345",
+    "senderEmail": "test@example.com",
+    "body": "Congratulations! You have won a free prize."
+  }
+  ```
 
-Request Body:
+**Response**
+- **From Node.js Backend:**
+  ```json
+  {
+    "message": "Email analyzed and updated successfully"
+  }
+  ```
+- **From Flask Backend:**
+  ```json
+  {
+    "risk_score": 0.75,
+    "spam_score": 0.8,
+    "grammar_score": 0.9
+  }
+  ```
 
-```json
-{
-  "email_id": "12345",
-  "senderEmail": "test@example.com",
-  "body": "This is a test email."
-}
+---
 
-Response:
-
-```json
-{
-  "risk_score": 0.75,
-  "spam_score": 0.8,
-  "grammar_score": 0.9
-}
-
-Example Request and Response
-
-Request (via Postman)
-URL: http://localhost:3000/analyze-email
-
-Method: POST
-
-Body (JSON):
-
-```json
-{
-  "email_id": "12345",
-  "senderEmail": "test@example.com",
-  "body": "Congratulations! You have won a free prize."
-}
-
-Response
-
-From Node.js Backend:
-
-```json
-{
-  "message": "Email analyzed and updated successfully"
-}
-
-From Flask Backend:
-
-```json
-{
-  "risk_score": 0.75,
-  "spam_score": 0.8,
-  "grammar_score": 0.9
-}
-
-Folder Structure
+## Folder Structure
+```
 email-risk-analysis/
 ├── node_backend/              # Node.js backend
 │   ├── models/                # MongoDB models
@@ -162,3 +161,4 @@ email-risk-analysis/
 │   ├── schemas.py             # Pydantic validation
 │   └── requirements.txt       # Python dependencies
 └── README.md                  # Project documentation
+```
