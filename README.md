@@ -39,6 +39,7 @@ This project is an **Email Risk Analysis System** that analyzes emails for risk,
 1. Install [Node.js](https://nodejs.org/).
 2. Install [Python](https://www.python.org/).
 3. Install [MongoDB](https://www.mongodb.com/).
+4. Install [Postman](https://www.postman.com/downloads/).
 
 ### Steps
 1. **Start MongoDB**:
